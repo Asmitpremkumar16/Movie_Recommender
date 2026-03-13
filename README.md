@@ -8,6 +8,17 @@ This project demonstrates how **recommendation systems** work using **Natural La
 
 ---
 
+
+# 🚀 Live Demo
+
+🔗 https://movie-recommender-0345.streamlit.app/
+
+👨‍💻 **Author:** Asmit Prem Kumar
+
+
+
+---
+
 ## 📌 Features
 
 - Recommend movies based on similarity
@@ -83,3 +94,8 @@ Star Trek
 Interstellar
 The Avengers
 ```
+---
+
+## 👋 Connect with Me
+
+* **LinkedIn:** https://www.linkedin.com/in/asmit-prem-kumar/
