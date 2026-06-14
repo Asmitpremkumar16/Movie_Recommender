@@ -13,7 +13,6 @@ def fetch_posters(movie_id):
     full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
     return full_path
 
-@st.cache_resource
 movies= pickle.load(open('movies.pkl','rb'))
 file_id = "1-EHGBW_MGdvZFpQGsIcNvq4dXRVbcwxG"
 file_path = "similarity.pkl"
@@ -21,7 +20,6 @@ if not os.path.exists(file_path):
     url = f"https://drive.google.com/uc?id={file_id}"
     gdown.download(url, file_path, quiet=False)
     
-@st.cache_resource
 # Load the pickle file
 similarity = pickle.load(open(file_path, "rb"))
 movies_list= movies['title'].values
