@@ -44,7 +44,7 @@ def recommend(movie):
 st.set_page_config(page_title="Movie Recommender", layout="wide")
 st.header("Movie Recommender System")
 
-selected_movie = st.selectbox("Type or select a movie from the dropdown", movie_list)
+selected_movie = st.selectbox("Type or select a movie from the dropdown", movies_list)
 
 if st.button('Show Recommendation'):
     movie_name, movie_poster= recommend(selected_movie) 
