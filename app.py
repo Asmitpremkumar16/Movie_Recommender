@@ -47,7 +47,6 @@ st.header("Movie Recommender System")
 
 selected_movie = st.selectbox("Type or select a movie from the dropdown", movies_list)
 
-@st.cache_resource
 if st.button('Show Recommendation'):
     movie_name, movie_poster= recommend(selected_movie) 
     col1, col2, col3, col4, col5 = st.columns(5)    
