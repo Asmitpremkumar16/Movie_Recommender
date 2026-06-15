@@ -13,7 +13,6 @@ def fetch_posters(movie_id):
     full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
     return full_path
 
-@st.cache_resource
 movies= pickle.load(open('movies.pkl','rb'))
 file_id = "1-EHGBW_MGdvZFpQGsIcNvq4dXRVbcwxG"
 file_path = "similarity.pkl"
