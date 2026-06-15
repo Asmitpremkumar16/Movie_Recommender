@@ -13,17 +13,20 @@ def fetch_posters(movie_id):
     full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
     return full_path
 
+@st.cache_resource
 movies= pickle.load(open('movies.pkl','rb'))
 file_id = "1-EHGBW_MGdvZFpQGsIcNvq4dXRVbcwxG"
 file_path = "similarity.pkl"
 if not os.path.exists(file_path):
     url = f"https://drive.google.com/uc?id={file_id}"
     gdown.download(url, file_path, quiet=False)
-    
+
+@st.cache_resource
 # Load the pickle file
 similarity = pickle.load(open(file_path, "rb"))
 movies_list= movies['title'].values
 
+@st.cache_resource
 def recommend(movie):
     if movie not in movies_list:
         print("Movie not found")
@@ -39,13 +42,15 @@ def recommend(movie):
         recommended_movie_posters.append(fetch_posters(movie_id))
         recommended_movie_names.append(movies.iloc[i[0]].title)
 
-    return recommended_movie_names, recommended_movie_posters    
-
+    return recommended_movie_names, recommended_movie_posters 
+    
+@st.cache_resource
 st.set_page_config(page_title="Movie Recommender", layout="wide")
 st.header("Movie Recommender System")
 
 selected_movie = st.selectbox("Type or select a movie from the dropdown", movies_list)
 
+@st.cache_resource
 if st.button('Show Recommendation'):
     movie_name, movie_poster= recommend(selected_movie) 
     col1, col2, col3, col4, col5 = st.columns(5)    
