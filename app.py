@@ -20,7 +20,6 @@ if not os.path.exists(file_path):
     url = f"https://drive.google.com/uc?id={file_id}"
     gdown.download(url, file_path, quiet=False)
 
-@st.cache_resource
 # Load the pickle file
 similarity = pickle.load(open(file_path, "rb"))
 movies_list= movies['title'].values
@@ -43,7 +42,6 @@ def recommend(movie):
 
     return recommended_movie_names, recommended_movie_posters 
     
-@st.cache_resource
 st.set_page_config(page_title="Movie Recommender", layout="wide")
 st.header("Movie Recommender System")
 
